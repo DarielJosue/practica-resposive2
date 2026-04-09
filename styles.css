@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header1 {
+  background: #797777;
+  padding: 15px;
+  font-weight: bold;
+  border: 3px solid black;
+  color: black;
+  text-align: start;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "A B B" "A B B" "C D E";
+  min-height: calc(100vh - 60px);
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  font-size: 2rem;
+  background: #eaeaea;
+}
+
+.A {
+  grid-area: A;
+}
+.B {
+  grid-area: B;
+}
+.C {
+  grid-area: C;
+}
+.D {
+  grid-area: D;
+}
+.E {
+  grid-area: E;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "B B" "B B" "C D" "E E";
+  }
+  .A {
+    display: none;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 80px 1fr 80px;
+  grid-template-areas:
+    "header header header"
+    "nav article aside"
+    "footer footer footer";
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background: #0b5fa5;
+  color: white;
+}
+
+nav {
+  grid-area: nav;
+  background: #1ea7d7;
+}
+
+article {
+  grid-area: article;
+  background: #cccccc;
+}
+
+aside {
+  grid-area: aside;
+  background: #1ea7d7;
+}
+
+footer {
+  grid-area: footer;
+  background: #0b5fa5;
+  color: white;
+}
+
+header,
+nav,
+aside,
+footer {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  padding-left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+article {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  padding-left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto auto;
+    grid-template-areas:
+      "header"
+      "article"
+      "nav"
+      "aside"
+      "footer";
+  }
+  article {
+    text-align: start;
+    justify-content: start;
+    font-weight: bold;
+    color: white;
+  }
+  nav,
+  aside,
+  footer,
+  header {
+    min-height: 60px;
+    text-align: start;
+    justify-content: start;
+    font-weight: bold;
+    color: white;
+  }
+}
